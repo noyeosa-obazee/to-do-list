@@ -8,10 +8,175 @@ html, body {
   color: #374151;
 }
 
-button, input {
+button, input, textarea, a{
   font-family: inherit;
   font-weight: inherit;
   font-display: inherit;
   line-height: inherit;
   letter-spacing: inherit;
+  color: inherit;
+  font-size: inherit;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+button {
+    cursor: pointer;
+}
+
+.todo-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.todo-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    position: relative;
+    height: fit-content;
+}
+
+.todo-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-color: #d1d5db;
+    transform: translateY(-1px);
+}
+
+.todo-card.completed {
+    background: #f9fafb;
+    border-color: #d1fae5;
+    opacity: 0.8;
+}
+
+.project-card {
+     background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    position: relative;
+    height: fit-content;
+}
+
+.project-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-color: #d1d5db;
+    transform: translateY(-1px);
+}
+
+.project-card.completed {
+    background: #f9fafb;
+    border-color: #d1fae5;
+    opacity: 0.8;
+}
+
+#new {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     transition: all 0.2s ease;
+}
+
+.modal__window {
+  position: relative;
+  background-color: white;
+  padding: 4em 2em;
+}
+
+.modal__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+#new:not(:target) {
+    visibility: hidden;
+    opacity: 0;
+}
+
+#new textarea {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px;
+    height: fit-content;
+}
+
+select,
+::picker(select) {
+  appearance: base-select;
+}
+
+#new select {
+ border: 1px solid #e5e7eb;
+  padding: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+
+select::picker-icon {
+  color: #999999;
+  transition: 0.3s rotate;
+}
+
+select:open::picker-icon {
+  rotate: 180deg;
+}
+
+::picker(select) {
+  border: none;
+}
+
+#new option {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  border: 1px solid #e5e7eb;
+  padding: 10px;
+  transition: 0.3s;
+}
+
+option:first-of-type {
+  border-radius: 8px 8px 0 0;
+}
+
+option:last-of-type {
+  border-radius: 0 0 8px 8px;
+}
+
+::picker(select) {
+  border-radius: 8px;
+}
+
+option:not(option:last-of-type) {
+  border-bottom: none;
+}
+
+::picker(select) {
+  opacity: 0;
+  transition: all 0.3s allow-discrete;
+}
+
+::picker(select):popover-open {
+  opacity: 1;
+}
+
+::picker(select) {
+  top: calc(anchor(bottom) + 1px);
+  left: anchor(10%);
 }
