@@ -1,7 +1,10 @@
 function toDoModal () {
     const newToDoContainer = document.createElement('div')
+    newToDoContainer.classList.add('todo-container')
     const heading = document.createElement('h2');
     heading.textContent = 'Add New To do'
+    const toDoForm = document.createElement('form')
+    toDoForm.classList.add('todo-form')
     const toDoLabel = document.createElement('label');
     toDoLabel.setAttribute('for', 'to-do-input')
     toDoLabel.textContent = 'Enter task:'
@@ -24,18 +27,26 @@ function toDoModal () {
     const option3 = document.createElement('option')
     option3.textContent = 'Low'
     option3.value = 'low'
+    const addToDoButton = document.createElement('button')
+    addToDoButton.type ='submit'
+    addToDoButton.textContent = 'Add Task'
+    addToDoButton.classList.add('add-todo-btn')
+    addToDoButton.onclick = (e) => { e.preventDefault() }
+    newToDoContainer.appendChild(heading)
     prioritySelection.appendChild(option1)
     prioritySelection.appendChild(option2)
     prioritySelection.appendChild(option3)
     priorityContainer.appendChild(priorityLabel)
     priorityContainer.appendChild(document.createElement('p'))
     priorityContainer.appendChild(prioritySelection)
-    newToDoContainer.appendChild(heading)
-    newToDoContainer.appendChild(toDoLabel)
-    newToDoContainer.appendChild(document.createElement('p'))
-    newToDoContainer.appendChild(toDoInput)
-    newToDoContainer.appendChild(document.createElement('p'))
-    newToDoContainer.appendChild(priorityContainer)
+    toDoForm.appendChild(toDoLabel)
+    toDoForm.appendChild(document.createElement('p'))
+    toDoForm.appendChild(toDoInput)
+    toDoForm.appendChild(document.createElement('p'))
+    toDoForm.appendChild(priorityContainer)
+    toDoForm.appendChild(document.createElement('p'))
+    toDoForm.appendChild(addToDoButton)
+    newToDoContainer.appendChild(toDoForm)
     
 
     return newToDoContainer;

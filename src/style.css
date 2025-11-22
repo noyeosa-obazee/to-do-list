@@ -104,6 +104,16 @@ button {
   right: 20px;
 }
 
+#new input {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+input[type="date"] {
+    cursor: pointer;
+}
+
 #new:not(:target) {
     visibility: hidden;
     opacity: 0;
